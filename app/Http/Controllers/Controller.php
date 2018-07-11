@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController{
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    // Eu vi isso em um tutorial, mas não sei se precisa usar no projeto
+    // Código pra testar o formulário
     // public function form_teste(){
     // 	echo "Deu certo o teste do formulário";
     // }
