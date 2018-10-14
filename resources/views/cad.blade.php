@@ -2,15 +2,17 @@
 @section('conteudo')
 		<h2 id="jogador" class="titulo"> Jogador </h2>
 		
-		<form class="form" action="{{route('cad_personagem')}}" method="post">
+		<form class="form" action="{{route('jogador.store')}}" method="post">
+			@csrf
+
 			<div class="inline"> 
-				Nickname <input class="campos" size="10" type="text" name="nome" > 
+				Nickname <input required="" class="campos" size="10" type="text" name="nome" > 
 			</div>
 			<div class="inline">
-				Email <input class="campos" size="10" type="text" name="sobrenome" >
+				Email <input required="" type="email" class="campos" size="10" type="text" name="email" >
 			</div>
 			<div id="form_senha">
-				 Senha <input class="campos" id="" size="10" type="password" name="nome" >
+				 Senha <input required="" class="campos" id="" size="10" type="password" name="senha" >
 
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<button id="botão" type="submit" name="button">Avançar</button>

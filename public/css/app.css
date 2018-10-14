@@ -73,14 +73,17 @@
 }
 
 
-#continuar{
+#login{
 	position: absolute;
 	font-size: 60px;
 	font-family: Chiller;
 	top: 201px;
 	left: 800px;
 	border: 2px dashed;
-	padding: 15px;
+	padding-left: 55px;
+	padding-right: 55px;
+	padding-bottom: 15px;
+	padding-top: 15px;
 }
 
 #ranking{
@@ -117,7 +120,7 @@ tentei com classe e tentei escrevendo "h3 figcaption:hover" mas a borda continua
 	border: green 2px solid;
 	color: green;
 }
-#continuar:hover{
+#login:hover{
 	border: green 2px solid;
 	color: green;
 }

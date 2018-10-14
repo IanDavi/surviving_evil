@@ -15,17 +15,20 @@ class CreatePersonagemsTable extends Migration
     {
         Schema::create('personagems', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('jogador_id')->unsigned();
-            $table->foreign('jogador_id')->references('id')->on('jogadors');
+            $table->integer('jogador_id')
+                ->unsigned();
             $table->string('nome');
             $table->integer('forca');
             $table->integer('agilidade');
             $table->integer('precisao');
             $table->integer('estamina');
             $table->integer('furtividade');
-            $table->integer('saude_mental');
-            //$table->primary(['id', 'jogador_id']);
-            $table->timestamps();
+            //$table->integer('saude_mental');
+        
+            $table->foreign('jogador_id')
+                ->references('id')
+                ->on('jogadors');
+            
         });
     }
 

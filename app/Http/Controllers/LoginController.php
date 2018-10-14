@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class JogadorController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,6 @@ class JogadorController extends Controller
     public function index()
     {
         //
-        return view('cad');
     }
 
     /**
@@ -38,14 +35,6 @@ class JogadorController extends Controller
     public function store(Request $request)
     {
         //
-        $nome = Input::get('nome');
-        $email = Input::get('email');
-        $senha = Input::get('senha');
-
-        DB::insert("insert into users values (default, '$nome', '$email', md5('$senha'), 'Jogador')");
-
-        //DB::insert('insert into jogadors values ($)')
-        return redirect()->to(route('personagem.index'));
     }
 
     /**

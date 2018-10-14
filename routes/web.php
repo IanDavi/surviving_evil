@@ -11,17 +11,29 @@
 |
 */
 
+Route::resource('jogador', 'JogadorController');
+
+Route::resource('personagem', 'PersonagemController');
+
+Route::resource('administrador', 'AdministradorController');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+
 Route::get('/home', function () {
     return view('home');
 })->name('home');
-
-Route::get('/cad', function () {
-    return view('cad');
-})->name('cad');
+/*
 
 Route::post('/cad_personagem', function () {
     return view('cad_personagem');
 })->name('cad_personagem');
+Route::get('/cad', function () {
+    return view('cad');
+})->name('cad');
+
 
 Route::get('/continuar', function () {
     return view('continuar');
@@ -35,3 +47,4 @@ Route::get('/erro', function () {
 Route::post('/erro', function () {
     return view('erro');
 })->name('erro');
+*/

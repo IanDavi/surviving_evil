@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
 
-class JogadorController extends Controller
+class AdministradorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,17 @@ class JogadorController extends Controller
     public function index()
     {
         //
-        return view('cad');
+        return view('pag_administrador');
     }
+
+    /*
+    public function jogadorShow()
+    {
+        $listajogadores = DB::table('jogadors')->where('tipo', 'Jogador')->get();
+
+        return view('mostrar_jogadores', ['jogadores' => $listajogadores]);
+    }
+    */
 
     /**
      * Show the form for creating a new resource.
@@ -27,6 +36,7 @@ class JogadorController extends Controller
     public function create()
     {
         //
+    
     }
 
     /**
@@ -38,14 +48,6 @@ class JogadorController extends Controller
     public function store(Request $request)
     {
         //
-        $nome = Input::get('nome');
-        $email = Input::get('email');
-        $senha = Input::get('senha');
-
-        DB::insert("insert into users values (default, '$nome', '$email', md5('$senha'), 'Jogador')");
-
-        //DB::insert('insert into jogadors values ($)')
-        return redirect()->to(route('personagem.index'));
     }
 
     /**
@@ -57,6 +59,8 @@ class JogadorController extends Controller
     public function show($id)
     {
         //
+
+
     }
 
     /**
