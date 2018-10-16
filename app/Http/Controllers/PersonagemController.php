@@ -51,10 +51,10 @@ class PersonagemController extends Controller
 
         //$jogador_id = DB::table('users')->select('max(id)');
 
-        DB::insert("insert into personagems values (default, 14, '$nome', '$forca', '$agilidade', '$precisao', '$estamina', '$furtividade')");
+        DB::insert("insert into personagems values (default, LAST_INSERT_ID(), '$nome', '$forca', '$agilidade', '$precisao', '$estamina', '$furtividade')");
         
 
-        DB::insert("insert into jogadors values (14)");
+        DB::insert("insert into jogadors values (LAST_INSERT_ID())");
 
         return redirect()->to(route('home'));
     }

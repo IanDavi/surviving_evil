@@ -17,10 +17,6 @@ Route::resource('personagem', 'PersonagemController');
 
 Route::resource('administrador', 'AdministradorController');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
 
 Route::get('/home', function () {
     return view('home');

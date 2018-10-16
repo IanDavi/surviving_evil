@@ -6,7 +6,7 @@
 	<form class="form2" action="{{route('personagem.store')}}" method="post">
 			Você tem 7 pontos. Distribua-os conforme julgar melhor:
 		<div id="nome_input"> 
-			Nome <input required="" value="$jogador_id" class="campos" size="8" type="text" name="nome" > 
+			Nome <input required="" value="" class="campos" size="8" type="text" name="nome" > 
 			<span id="agi_furt">
 				Agilidade <input required="" value="0" type="number" id="agilidade" name="agilidade" min="0" max="7" onClick="medidor()">
 				Furtividade <input required="" value="0" type="number" id="furtividade" name="furtividade" min="0" max="7" onClick="medidor()">
