@@ -86,12 +86,12 @@
 	padding-top: 15px;
 }
 
-#ranking{
+#pers{
 	position: absolute;
 	font-size: 60px;
 	font-family: Chiller;
 	top: 426px;
-	left: 300px;
+	left: 180px;
 	border: 2px dashed;
 	padding: 15px;
 	padding-left: 35px;
@@ -124,7 +124,7 @@ tentei com classe e tentei escrevendo "h3 figcaption:hover" mas a borda continua
 	border: green 2px solid;
 	color: green;
 }
-#ranking:hover{
+#pers:hover{
 	border: green 2px solid;
 	color: green;
 }

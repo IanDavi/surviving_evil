@@ -14,6 +14,7 @@ class CreateJogadorsTable extends Migration
     public function up()
     {
         Schema::create('jogadors', function (Blueprint $table) {
+            $table->string('nick');
             $table->integer('id')
                 ->unsigned();
 

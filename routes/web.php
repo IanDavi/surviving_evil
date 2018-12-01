@@ -15,9 +15,6 @@ Route::resource('jogador', 'JogadorController');
 
 Route::resource('personagem', 'PersonagemController');
 
-Route::resource('administrador', 'AdministradorController');
-
-
 Route::get('/home', function () {
     return view('home');
 })->name('home');

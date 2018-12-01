@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+
 class PersonagemController extends Controller
 {
     /**
@@ -16,7 +17,7 @@ class PersonagemController extends Controller
     public function index()
     {
         //
-        return view('cad_personagem');
+        return view('personagem.cad_personagem');
     }
 
     /**
@@ -27,6 +28,9 @@ class PersonagemController extends Controller
     public function create()
     {
         //
+        $personagens = DB::select('select * from personagems;');
+
+        return view('personagem.mostrar',['personagens'=>$personagens]);
     }
 
     /**
@@ -46,15 +50,10 @@ class PersonagemController extends Controller
         $furtividade = Input::get('furtividade');
 
         //Código pra pegar o último id inserido
-        //$jogador_id = DB::table('users')-> selectRaw('max(id)')-> get();
-
-
-        //$jogador_id = DB::table('users')->select('max(id)');
+        
 
         DB::insert("insert into personagems values (default, LAST_INSERT_ID(), '$nome', '$forca', '$agilidade', '$precisao', '$estamina', '$furtividade')");
         
-
-        DB::insert("insert into jogadors values (LAST_INSERT_ID())");
 
         return redirect()->to(route('home'));
     }
@@ -65,9 +64,22 @@ class PersonagemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    //NÃO FUNCIONA
+    public function mostrar(){
+        $personagens = DB::table('personagems')->get();
+
+        return view('personagem.mostrar', compact($personagens));
+    }
+
+    //NÃO FUNCIONA
+    public function show()
     {
         //
+
+        $personagens = DB::table('personagems')->get();
+
+        return view('personagem.mostrar', compact($personagens));
     }
 
     /**

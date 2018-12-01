@@ -9,8 +9,8 @@ $factory->define(App\Jogador::class, function (Faker $faker) {
 	$user->save();
 
     return [
+    	'nick' => $faker->name,
     	'id' => $user
-
         //
     ];
 });

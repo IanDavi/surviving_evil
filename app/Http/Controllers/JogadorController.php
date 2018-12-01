@@ -16,7 +16,7 @@ class JogadorController extends Controller
     public function index()
     {
         //
-        return view('cad');
+        return view('jogador.cad');
     }
 
     /**
@@ -27,6 +27,7 @@ class JogadorController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -37,14 +38,18 @@ class JogadorController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $nome = Input::get('nome');
+        
+        //NÃO TÁ PRESTANDO
+        $nick = Input::get('nome');
         $email = Input::get('email');
         $senha = Input::get('senha');
 
-        DB::insert("insert into users values (default, '$nome', '$email', md5('$senha'), 'Jogador')");
+        DB::insert("insert into users values (default, '$email', md5('$senha'), 'Jogador')");
 
-        //DB::insert('insert into jogadors values ($)')
+        $id = mysqli_fetch_array(mysqli_query(mysqli_connect("127.0.0.1", "root", "", "survivingevil"), "select id from users where email = '$email';"));
+        
+        DB::insert("insert into jogadors values ('$nick',".$id['id'].");");
+
         return redirect()->to(route('personagem.index'));
     }
 
