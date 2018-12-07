@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class JogadorController extends Controller
+class RedirectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class JogadorController extends Controller
      */
     public function index()
     {
-        //
-        return view('jogador.cad');
+        return view('login.loginform');
     }
 
     /**
@@ -27,7 +24,6 @@ class JogadorController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -38,18 +34,7 @@ class JogadorController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $nick = Input::get('nome');
-        $email = Input::get('email');
-        $password = Input::get('password');
-
-        DB::insert("insert into users values (default, '$email', md5('$password'), 'Jogador')");
-
-        $id = mysqli_fetch_array(mysqli_query(mysqli_connect("127.0.0.1", "root", "", "survivingevil"), "select id from users where email = '$email';"));
-        
-        DB::insert("insert into jogadors values ('$nick',".$id['id'].");");
-
-        return redirect()->to(route('personagem.index'));
+        //
     }
 
     /**

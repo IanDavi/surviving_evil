@@ -18,7 +18,7 @@ class AdministradorSeeder extends Seeder
 
         for ($i = 0; $i <= 2; $i++) {
             $user = factory(App\User::class)->create();
-            $user->tipo = 'Administrador';
+            $user->type = 'Administrador';
 
             $a = rand(1,9);
             $b = rand(1,9);
