@@ -15,6 +15,7 @@ class AdministradorSeeder extends Seeder
         $prefixo = '20150401';
 
         
+        
 
         for ($i = 0; $i <= 2; $i++) {
             $user = factory(App\User::class)->create();

@@ -16,12 +16,12 @@ Route::resource('jogador', 'JogadorController');
 
 Route::resource('personagem', 'PersonagemController');
 
-Route::resource('redirect', 'RedirectController');
+Route::resource('pergunta', 'PerguntaController');
 
 Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-Auth::routes();
+
 
 //Route::get('/home', 'HomeController@index')->name('home');

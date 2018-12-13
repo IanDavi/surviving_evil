@@ -14,8 +14,6 @@
 			<div id="form_senha">
 				 Senha <input required="" class="campos" id="" size="10" type="password" name="password" >
 				
-				<input type="hidden" name="type_preselected" value="Jogador">
-				
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<button id="botão" type="submit" name="button">Avançar</button>
 			</div>

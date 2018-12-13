@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\User;
 
 
@@ -51,7 +52,11 @@ class LoginController extends Controller
                         route('perguntas.perguntas', 
                             ['id' => $user->id]));
                     */
-                    return view('perguntas.perguntas');
+
+                    $perguntas = DB::select('select * from perguntas where id=1;');
+
+                    return view('perguntas.perguntas')->with('perguntas', $perguntas);
+                    //return view('perguntas.perguntas');
 
                 }else if($user->type == "Administrador"){
                     /*return redirect()->to(
@@ -63,7 +68,8 @@ class LoginController extends Controller
             }
 
         } else {
-            return redirect()->route('redirect.index');
+            //return redirect()->route('login');
+            return view('home');
         }
     }
 
@@ -71,7 +77,8 @@ class LoginController extends Controller
     {
         Auth::logout();
         $request->session()->flush();
-        return redirect(\URL::previous());
+        //return redirect(\URL::previous());
+        return view('home');
     }
 
 }

@@ -1,7 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -43,7 +43,9 @@ class JogadorController extends Controller
         $email = Input::get('email');
         $password = Input::get('password');
 
-        DB::insert("insert into users values (default, '$email', md5('$password'), 'Jogador')");
+        $password_conv = Hash::make($password);
+
+        DB::insert("insert into users values (default, '$email', '$password_conv', 'Jogador', default)");
 
         $id = mysqli_fetch_array(mysqli_query(mysqli_connect("127.0.0.1", "root", "", "survivingevil"), "select id from users where email = '$email';"));
         

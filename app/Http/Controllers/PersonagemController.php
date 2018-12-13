@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Input;
@@ -28,9 +27,10 @@ class PersonagemController extends Controller
     public function create()
     {
         //
+        //$personagens = \App\Personagem::orderBy('id','cres')->paginate(4);
         $personagens = DB::select('select * from personagems;');
 
-        return view('personagem.mostrar',['personagens'=>$personagens]);
+        return view('personagem.mostrar')->with('personagens', $personagens);
     }
 
     /**

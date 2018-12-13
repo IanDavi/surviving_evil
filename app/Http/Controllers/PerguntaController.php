@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class RedirectController extends Controller
+class PerguntaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class RedirectController extends Controller
      */
     public function index()
     {
-        return view('login.loginform');
+        //
     }
 
     /**
@@ -24,6 +25,22 @@ class RedirectController extends Controller
     public function create()
     {
         //
+
+        $resultado = Input::get('opcao');
+
+        echo $resultado;
+
+        $array = explode(;, $resultado);
+
+        $res = $array[1];
+        $id = $array[0] + 1;
+
+        if ($res == "aa" || $res == "dd" || $res == "cc" || $res == "dd") {
+            $perguntas = DB::select('select * from perguntas where id=$id;');
+
+            return view('perguntas.perguntas')->with('perguntas', $perguntas);
+        }
+
     }
 
     /**
